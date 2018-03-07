@@ -1,3 +1,7 @@
+@mixin iphone
+	@media only screen and (max-width: 480px)
+		@content
+
 $backgCol: #394146
 $redCol: #ff0000
 $grayCol: #8899a1
@@ -19,6 +23,7 @@ body
 	font-family: $rok
 	line-height: 1.3
 	font-size: 13px
+	width: 100%
 
 	h2
 		text-transform: uppercase
@@ -43,6 +48,7 @@ body
 		background: #fff
 		margin: 0 auto
 		display: flex
+		flex-direction: row
 		-webkit-box-shadow: 0px 0px 33px -1px rgba(0,0,0,0.5)
 		-moz-box-shadow: 0px 0px 33px -1px rgba(0,0,0,0.5)
 		box-shadow: 0px 0px 33px -1px rgba(0,0,0,0.5)
@@ -80,7 +86,11 @@ body
 			section#expertise
 				ul
 					padding-left: 15px
-	
+
+		@include iphone
+			aside
+				width: 100%
+
 		main 
 			width: 65%
 			box-sizing: border-box
@@ -115,6 +125,10 @@ body
 							font-family: $play
 							color: $grayCol
 
+			@include iphone
+				#top-headline
+					display: none
+
 			section#experience
 
 				h2
@@ -146,3 +160,27 @@ body
 							font-size: 25px
 							font-weight: 400
 							margin: 0
+
+		@include iphone
+			main
+				width: 100%
+
+
+				header#top-headline
+					h1
+						font-size: 45px
+
+					.title
+						position: absolute
+						top: -12px
+						right: 0
+						border-left: 1px solid #000
+						padding-left: 20px
+
+						h3
+							font-size: 20px
+
+	@include iphone
+		#wrapper
+			width: 100%
+			flex-direction: column
